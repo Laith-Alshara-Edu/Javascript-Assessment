@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(228, 145, 69);
+}
+
+h1 {
+    font: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 55px;
+    color: white;
+}
