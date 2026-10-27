@@ -9,6 +9,15 @@ h1 {
     color: white;
 }
 
+footer {
+  font-family: 'Courier New', Courier, monospace;  
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 99%;}
 
 #game {
     width: 600px;
@@ -36,4 +45,13 @@ h1 {
     position: absolute;
     bottom: 20px;
     left: 50px;
+}
+
+.cactus {
+    width: 20px;
+    height: 40px;
+    background-color: green;
+    position: absolute;
+    bottom: 20px;
+    left: 600px;
 }

@@ -1,6 +1,6 @@
+
 const game = document.getElementById("game");
 const dino = document.getElementById("dino");
-const ground = document.getElementById("ground");
 
 let isJumping = false;
 let jumpHeight = 0;
@@ -8,6 +8,12 @@ let velocity = 0;
 
 const gravity = 0.6;
 const jumpStrength = 12;
+
+let obstacles = [];
+let obstacleTimer = 0;
+let nextObstacleTime = 100;
+
+const obstacleSpeed = 4;
 
 document.addEventListener("keydown", function(event) {
     if (event.code === "Space") {
@@ -19,6 +25,17 @@ document.addEventListener("keydown", function(event) {
         }
     }
 });
+
+function createObstacle() {
+    const cactus = document.createElement("div");
+    cactus.classList.add("cactus");
+    game.appendChild(cactus);
+
+    obstacles.push({
+        element: cactus,
+        x: game.clientWidth
+    });
+}
 
 function gameLoop() {
     if (isJumping) {
@@ -32,6 +49,27 @@ function gameLoop() {
         }
 
         dino.style.bottom = (20 + jumpHeight) + "px";
+    }
+
+    obstacleTimer++;
+
+    if (obstacleTimer >= nextObstacleTime) {
+        createObstacle();
+        obstacleTimer = 0;
+
+        nextObstacleTime = 70 + Math.random() * 70;
+    }
+
+    for (let i = obstacles.length - 1; i >= 0; i--) {
+        const obstacle = obstacles[i];
+
+        obstacle.x -= obstacleSpeed;
+        obstacle.element.style.left = obstacle.x + "px";
+
+        if (obstacle.x < -20) {
+            obstacle.element.remove();
+            obstacles.splice(i, 1);
+        }
     }
 
     requestAnimationFrame(gameLoop);
