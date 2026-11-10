@@ -55,3 +55,30 @@ footer {
     bottom: 20px;
     left: 600px;
 }
+
+#level-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#level-buttons button {
+    background-color: #777;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#level-buttons button:hover {
+    background-color: #555;
+}
+
+#level-buttons button.active {
+    background-color: #444;
+}
