@@ -19,15 +19,15 @@ h1 {
 }
 
 footer {
-  font-family: 'Courier New', Courier, monospace;  
-  text-align: center;
-  padding: 3px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  position: absolute;
-  bottom: 0;
-  width: 99%;}
-
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding: 3px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+}
 
 #scoreboard {
     display: flex;
@@ -35,6 +35,23 @@ footer {
     gap: 100px;
     font-size: 40px;
     margin: 20px;
+}
+
+#levelSelector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px;
+}
+
+#levelSelector button {
+    margin: 0;
+    padding: 10px 15px;
+}
+
+#levelSelector button.active {
+    background: #00cc66;
+    color: white;
 }
 
 #game {
@@ -93,4 +110,12 @@ button {
 
 button:hover {
     background: #cccccc;
+}
+
+#levelSelector button:hover {
+    background: #cccccc;
+}
+
+#levelSelector button.active:hover {
+    background: #00aa55;
 }

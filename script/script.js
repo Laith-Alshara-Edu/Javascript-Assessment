@@ -1,3 +1,4 @@
+
 const game = document.getElementById("game");
 
 const paddle1 = document.getElementById("paddle1");
@@ -22,8 +23,17 @@ let paddle2Y = 160;
 let ballX = 343;
 let ballY = 193;
 
-let ballSpeedX = 4;
-let ballSpeedY = 3;
+// Level settings
+let currentLevel = 1;
+
+const levels = {
+    1: 3,
+    2: 5,
+    3: 7
+};
+
+let ballSpeedX = levels[currentLevel];
+let ballSpeedY = levels[currentLevel] * 0.75;
 
 const paddleSpeed = 6;
 
@@ -37,6 +47,26 @@ document.addEventListener("keydown", function(e) {
 document.addEventListener("keyup", function(e) {
     keys[e.key.toLowerCase()] = false;
 });
+
+// Select difficulty level
+function setLevel(level) {
+
+    currentLevel = level;
+
+    // Update ball speed
+    ballSpeedX = levels[level];
+    ballSpeedY = levels[level] * 0.75;
+
+    // Update selected button
+    document.querySelectorAll("#levelSelector button")
+        .forEach(button => button.classList.remove("active"));
+
+    document.querySelector(
+        `#levelSelector button:nth-child(${level})`
+    ).classList.add("active");
+
+    resetBall();
+}
 
 // Move paddles
 function movePaddles() {
@@ -112,15 +142,21 @@ function moveBall() {
 
 // Reset ball
 function resetBall() {
+
     ballX = 343;
     ballY = 193;
 
-    ballSpeedX *= -1;
-    ballSpeedY = Math.random() > 0.5 ? 3 : -3;
+    // Apply speed according to selected level
+    ballSpeedX = levels[currentLevel] *
+        (Math.random() > 0.5 ? 1 : -1);
+
+    ballSpeedY = levels[currentLevel] * 0.75 *
+        (Math.random() > 0.5 ? 1 : -1);
 }
 
 // Game loop
 function gameLoop() {
+
     movePaddles();
     moveBall();
 
@@ -129,6 +165,7 @@ function gameLoop() {
 
 // Restart game
 function restartGame() {
+
     score1 = 0;
     score2 = 0;
 
@@ -138,13 +175,13 @@ function restartGame() {
     paddle1Y = 160;
     paddle2Y = 160;
 
-    ballSpeedX = 4;
-    ballSpeedY = 3;
-
     resetBall();
 }
 
 restartButton.addEventListener("click", restartGame);
+
+// Select level 1 by default
+setLevel(1);
 
 // Start game
 gameLoop();
