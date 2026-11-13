@@ -112,10 +112,40 @@ button:hover {
     background: #cccccc;
 }
 
-#levelSelector button:hover {
-    background: #cccccc;
+#levelSelector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px;
 }
 
-#levelSelector button.active:hover {
-    background: #00aa55;
+#levelSelector button {
+    margin: 0;
+    padding: 10px 15px;
+    border: 3px solid transparent;
+    transition: 0.2s;
+}
+
+#levelSelector button:nth-child(1) {
+    background: #00cc66;
+    color: white;
+}
+
+#levelSelector button:nth-child(2) {
+    background: #ffcc00;
+    color: black;
+}
+
+#levelSelector button:nth-child(3) {
+    background: #e53935;
+    color: white;
+}
+
+#levelSelector button.active {
+    border: 3px solid white;
+}
+
+#levelSelector button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
 }
