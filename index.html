@@ -3,36 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dino Runner</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6793/6793720.png">
     <link rel="stylesheet" href="style/style.css">
+    <title>Javascript Pong</title>
 </head>
 <body>
     <center>
-        <h1>Dino Runner</h1>
+        <h1>Javascript Pong</h1>
     </center>
+    <div id="scoreboard">
+        <span id="player1Score">0</span>
+        <span id="player2Score">0</span>
+    </div>
 
-    <center>
-        <div id="game">
-            <div id="dino"></div>
-            <div id="ground"></div>
-        </div>
-    </center>
+    <div id="game">
+        <div id="centerLine"></div>
 
-    <center>
+        <div id="paddle1" class="paddle"></div>
+        <div id="paddle2" class="paddle"></div>
 
-<div id="level-buttons">
-    <button id="level1">Level 1</button>
-    <button id="level2">Level 2</button>
-    <button id="level3">Level 3</button>
-</div>
+        <div id="ball"></div>
+    </div>
 
-    </center>
-    
-        <script src="script/game.js"></script>
+    <button id="restart">Reset Game</button>
 
-        <footer>
-  <p>Game by: Laith Alshara<br> Assessment for GameOn Class</p>
+    <script src="script/script.js"></script>
+
+<footer>
+  <p>Game by: Laith Alshara<br> Assessment for Game On Class</p>
 </footer>
-
 </body>
 </html>
